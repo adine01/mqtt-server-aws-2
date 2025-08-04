@@ -10,12 +10,30 @@ class MQTTService {
     }
 
     connect() {
-        this.client = mqtt.connect(config.BROKER_URL);
+        this.client = mqtt.connect(config.BROKER_URL, config.OPTIONS);
 
         this.client.on('connect', () => {
             logger.success('Connected to MQTT broker');
             this.isConnected = true;
             this.subscribeToTopics();
+        });
+
+        // ✅ Add reconnect handling
+        this.client.on('reconnect', () => {
+            logger.warning('Reconnecting to MQTT broker...');
+            this.isConnected = false;
+        });
+
+        // ✅ Add close handling  
+        this.client.on('close', () => {
+            logger.warning('MQTT connection closed');
+            this.isConnected = false;
+        });
+
+        // ✅ Add offline handling
+        this.client.on('offline', () => {
+            logger.error('MQTT client went offline');
+            this.isConnected = false;
         });
 
         this.client.on('message', (topic, message) => {

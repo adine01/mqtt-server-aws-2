@@ -60,4 +60,4 @@ class PassengerModel {
     }
 }
 
-module.exports = new PassengerModel();
+export default new PassengerModel();

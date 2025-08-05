@@ -1,7 +1,9 @@
-const mqttService = require('../services/mqttService');
-const passengerModel = require('../models/PassengerModel');
-const routeModel = require('../models/RouteModel');
-const { AVAILABLE_ROUTES } = require('../utils/constants');
+import mqttService from '../services/mqttService.js';
+import passengerModel from '../models/PassengerModel.js';
+import routeModel from '../models/RouteModel.js';
+import constants from '../utils/constants.js';
+
+const { AVAILABLE_ROUTES } = constants;
 
 const getHealth = (req, res) => {
     res.json({
@@ -15,6 +17,6 @@ const getHealth = (req, res) => {
     });
 };
 
-module.exports = {
+export {
     getHealth
 };

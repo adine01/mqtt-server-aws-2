@@ -1,8 +1,10 @@
-const { Server } = require('socket.io');
-const passengerModel = require('../models/PassengerModel');
-const routeModel = require('../models/RouteModel');
-const logger = require('../utils/logger');
-const { AVAILABLE_ROUTES } = require('../utils/constants');
+import { Server } from 'socket.io';
+import passengerModel from '../models/PassengerModel.js';
+import routeModel from '../models/RouteModel.js';
+import logger from '../utils/logger.js';
+import constants from '../utils/constants.js';
+
+const { AVAILABLE_ROUTES } = constants;
 
 class SocketService {
     constructor() {
@@ -111,4 +113,4 @@ class SocketService {
     }
 }
 
-module.exports = new SocketService();
+export default new SocketService();

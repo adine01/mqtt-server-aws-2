@@ -1,10 +1,11 @@
-const express = require('express');
-const http = require('http');
-const corsMiddleware = require('./middleware/cors');
-const errorHandler = require('./middleware/errorHandler');
-const routes = require('./routes');
-const mqttService = require('./services/mqttService');
-const socketService = require('./services/socketService');
+import express from 'express';
+import http from 'http';
+import corsMiddleware from './middleware/cors.js';
+import errorHandler from './middleware/errorHandler.js';
+import routes from './routes/index.js';
+import mqttService from './services/mqttService.js';
+import socketService from './services/socketService.js';
+import { getAvailableRoutes } from './controllers/routeController.js';
 
 const app = express();
 const server = http.createServer(app);
@@ -21,9 +22,9 @@ app.use(express.json());
 app.use('/', routes);
 
 // Add available routes endpoint at root level
-app.get('/available-routes', require('./controllers/routeController').getAvailableRoutes);
+app.get('/available-routes', getAvailableRoutes);
 
 // Error handling
 app.use(errorHandler);
 
-module.exports = server;
+export default server;

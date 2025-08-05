@@ -1,7 +1,9 @@
-const routeModel = require('../models/RouteModel');
-const socketService = require('./socketService');
-const logger = require('../utils/logger');
-const { CLEANUP_INTERVAL, OFFLINE_THRESHOLD } = require('../utils/constants');
+import routeModel from '../models/RouteModel.js';
+import socketService from './socketService.js';
+import logger from '../utils/logger.js';
+import constants from '../utils/constants.js';
+
+const { CLEANUP_INTERVAL, OFFLINE_THRESHOLD } = constants;
 
 class LocationService {
     constructor() {
@@ -96,4 +98,4 @@ class LocationService {
     }
 }
 
-module.exports = new LocationService();
+export default new LocationService();

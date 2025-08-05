@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     AVAILABLE_ROUTES: [
         "99", "240", "EX01", "187"
     ],

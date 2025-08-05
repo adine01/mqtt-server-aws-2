@@ -1,9 +1,9 @@
-const express = require('express');
-const passengerController = require('../controllers/passengerController');
+import express from 'express';
+import { getPassengers } from '../controllers/passengerController.js';
 
 const router = express.Router();
 
 // Get connected passengers info
-router.get('/', passengerController.getPassengers);
+router.get('/', getPassengers);
 
-module.exports = router;
+export default router;

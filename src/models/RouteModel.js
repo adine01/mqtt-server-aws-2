@@ -72,4 +72,4 @@ class RouteModel {
     }
 }
 
-module.exports = new RouteModel();
+export default new RouteModel();

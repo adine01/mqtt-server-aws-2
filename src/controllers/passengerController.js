@@ -1,4 +1,4 @@
-const passengerModel = require('../models/PassengerModel');
+import passengerModel from '../models/PassengerModel.js';
 
 const getPassengers = (req, res) => {
     const passengers = passengerModel.getAllPassengers();
@@ -10,6 +10,6 @@ const getPassengers = (req, res) => {
     });
 };
 
-module.exports = {
+export {
     getPassengers
 };

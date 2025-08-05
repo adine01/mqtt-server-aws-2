@@ -1,12 +1,12 @@
-const express = require('express');
-const routeRoutes = require('./routeRoutes');
-const passengerRoutes = require('./passengerRoutes');
-const healthController = require('../controllers/healthController');
+import express from 'express';
+import routeRoutes from './routeRoutes.js';
+import passengerRoutes from './passengerRoutes.js';
+import { getHealth } from '../controllers/healthController.js';
 
 const router = express.Router();
 
 // Health check
-router.get('/health', healthController.getHealth);
+router.get('/health', getHealth);
 
 // Route-related endpoints
 router.use('/routes', routeRoutes);
@@ -15,4 +15,4 @@ router.use('/available-routes', routeRoutes);
 // Passenger-related endpoints
 router.use('/passengers', passengerRoutes);
 
-module.exports = router;
+export default router;

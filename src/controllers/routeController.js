@@ -1,5 +1,7 @@
-const routeModel = require('../models/RouteModel');
-const { AVAILABLE_ROUTES } = require('../utils/constants');
+import routeModel from '../models/RouteModel.js';
+import constants from '../utils/constants.js';
+
+const { AVAILABLE_ROUTES } = constants;
 
 const getAllRoutes = (req, res) => {
     const activeRoutes = routeModel.getAllRoutes();
@@ -53,7 +55,7 @@ const getAvailableRoutes = (req, res) => {
     });
 };
 
-module.exports = {
+export {
     getAllRoutes,
     getRouteById,
     getAvailableRoutes

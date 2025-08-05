@@ -1,6 +1,7 @@
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
-module.exports = {
+export default {
     BROKER_URL: process.env.MQTT_BROKER || 'mqtt://localhost:1883',
     OPTIONS: {
         keepalive: 60,           // 60-second keepalive

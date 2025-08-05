@@ -1,7 +1,6 @@
-const mqtt = require('mqtt');
-const config = require('../config/mqtt');
-const logger = require('../utils/logger');
-const locationService = require('./locationService');
+import mqtt from 'mqtt';
+import config from '../config/mqtt.js';
+import logger from '../utils/logger.js';
 
 class MQTTService {
     constructor() {
@@ -76,11 +75,14 @@ class MQTTService {
             const routeNo = topicParts[1];
             const messageType = topicParts[2];
 
-            if (messageType === 'location') {
-                locationService.handleLocationUpdate(routeNo, message);
-            } else if (messageType === 'status') {
-                locationService.handleStatusUpdate(routeNo, message);
-            }
+            // Dynamic import to avoid circular dependency
+            import('./locationService.js').then(({ default: locationService }) => {
+                if (messageType === 'location') {
+                    locationService.handleLocationUpdate(routeNo, message);
+                } else if (messageType === 'status') {
+                    locationService.handleStatusUpdate(routeNo, message);
+                }
+            });
         } catch (error) {
             logger.error('Error processing MQTT message:', error);
         }
@@ -91,4 +93,4 @@ class MQTTService {
     }
 }
 
-module.exports = new MQTTService();
+export default new MQTTService();

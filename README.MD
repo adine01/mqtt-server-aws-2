@@ -33,7 +33,7 @@ A real-time bus tracking system built with Node.js, MQTT, and WebSockets that en
 ## 🏗️ Architecture
 
 ```
-┌─────────────────┐    MQTT     ┌─────────────────┐    WebSocket    ┌─────────────────┐
+┌─────────────────┐    MQTT      ┌─────────────────┐    WebSocket     ┌─────────────────┐
 │   Driver Apps   │ ───────────► │   Server API    │ ───────────────► │ Passenger Apps  │
 │   (Flutter)     │              │   (Node.js)     │                  │   (Web/Mobile)  │
 └─────────────────┘              └─────────────────┘                  └─────────────────┘

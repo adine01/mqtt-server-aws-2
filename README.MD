@@ -33,8 +33,7 @@ A real-time bus tracking system built with Node.js, MQTT, and WebSockets that en
 ## 🏗️ Architecture
 
 ```
-![Architecture Diagram](https://github.com/adine01/mqtt-server-aws-2/blob/dev-aws-2/test-system-architecture-diagram.png)
-
+![Architecture Diagram](https://raw.githubusercontent.com/adine01/mqtt-server-aws-2/dev-aws-2/test-system-architecture-diagram.png)
 ```
 
 ### Components
